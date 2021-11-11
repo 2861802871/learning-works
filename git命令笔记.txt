@@ -1,0 +1,16 @@
+git clone 网址          从gitee克隆整个库到本地
+
+git status             查看有几个项目改了，未add的显示红色，add的显示绿色
+
+git diff               查看已更改项目具体都改了啥
+
+git add 文件名         添加这个文件
+git add -A             添加所有更改的文件
+
+git commit -a -m '备注'    把添加的文件提交到git
+
+git push                确认提交，此时gitee就可以看到更改完的文件了
+
+git pull                把云端的项目同步到本地
+1
+2
