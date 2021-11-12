@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>5s之后关闭图片</p>
+        <button>点击关闭定时器</button>
+        <img src="1.jpg" alt="">
+    </div>
+    
+    <script>
+        var btn = document.querySelector('button');
+        var number = 0;
+        var img = document.querySelector('img');//5s之后关闭图片
+        var timer1 = setTimeout(function() {
+            img.style.display = 'none';
+        },5000)
+        btn.addEventListener('click',function() {//关闭定时器
+            clearTimeout(timer1);
+        })
+        var timer2 = setInterval(callback,1000);//每隔1S加1
+        function callback(){
+            number+=1;
+            console.log(number);
+        }
+    </script>
+</body>
+</html>

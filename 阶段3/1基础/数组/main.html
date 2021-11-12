@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str1 = [1,2,'lx',4];
+        str1[1]=3;
+        console.log(str1[1]);
+        console.log(str1.length);
+
+        // 求和 平均值
+        var num=[1,2,3,4,5,6,7,8,9];
+        var sum=0;
+        // var average=0;
+        for(var i=0;i<num.length;i++)
+        {
+            sum+=num[i];
+        }
+        console.log(sum,sum/num.length);
+
+        // 最大值
+        var max=0;
+        var middle=0;
+        var min;
+        var num = [2,6,1,77,52,7];
+        for(i=0;i<num.length;i++){
+            middle=num[i];
+            if (i==0){
+                max=min=num[0];
+            }
+            if(middle>max){
+                max=middle;
+            }
+            if(middle<min){
+                min=middle;
+            }
+        }
+        console.log(max,min);
+
+            // 排序
+        for(i=0;i<num.length;i++){
+            for(j=0;j<num.length;j++){//由小到大排序
+                if(num[i]<num[j]){
+                    min=num[j];
+                    num[j]=num[i];
+                    num[i]=min;
+                }
+            }
+        }
+        var str='';
+        for(i=0;i<num.length;i++){
+            str+=num[i]+' ';//转换为字符串
+        }
+        console.log(str);
+
+        var leng = [1,2];
+        leng.length=5;//将多出两个空位
+        console.log(leng);
+
+        var ad=[];
+        for(var i=0;i<10;i++){
+            ad[i]=i;
+        }
+        console.log(ad);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

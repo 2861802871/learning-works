@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box3,.box1,.box0,#button0{
+            display: block;
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid rgb(73, 73, 73);
+            margin: 100px auto;
+            font-size: 14px;
+        }
+        #button0{
+            outline: none;
+            border: 1px solid rgb(196, 196, 196);
+            border-radius: 20px;
+            font-size: 18px;
+            color: rgb(78, 78, 78);
+            background-color: rgb(255, 239, 64);
+        }
+        input{
+            width: 370px;
+            height: 30px;
+            border: 0;
+            outline: none;
+            color: rgb(133, 135, 136);
+        }
+        img{
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            /* float: right; */
+            width: 24px;
+        }
+        .chang{
+            color: white;
+            background-color: rgb(75, 75, 75);
+        }
+        .box3{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box0">
+        <input id="input0" type="text" value="请输入用户名/123">
+    </div>
+    <div class="box1">
+        <label for="">
+            <img src="close.png" alt="">
+        </label>
+        <input type="text" id="input1" value="请输入密码/1234">
+    </div>
+    <div class="box2">
+        <button id="button0">登录</button>
+    </div>
+    <div class="box3" id="box3">
+        确定登录
+    </div>
+    <script>
+        var input0 = document.getElementById('input0');
+        var input1 = document.getElementById('input1');
+        var button0 = document.getElementById('button0');
+        var img = document.querySelector('img');
+        var box3 = document.getElementById('box3');
+        var flag = 1;
+        var flag0 = 1;
+        var flag1 = 1;
+
+        input0.onfocus = function(){//获得焦点输入用户名提示消除
+            // this.className = 'chang';//className调用
+            if (flag0 == 1||input0.style.color == 'red'){
+            this.value = '';
+            this.style.color = 'rgb(20, 20, 20)';
+            flag0 = 0;
+            }    
+        }
+        input0.onblur = function(){//失去焦点输入用户名提示恢复
+            if(input0.value == ''){
+                input0.style.color = 'rgb(133, 135, 136)';
+                input0.type = 'text';
+                input0.value = "请输入用户名/123";
+                flag0 = 1;
+            }
+            if(input0.value.length<3){
+                input0.style.color = 'red';
+                input0.value = "请输入用户名三位以上";
+            }
+        } 
+        input1.onfocus = function(){//获得焦点输入密码提示消除
+            if (flag1 == 1||input1.style.color == 'red'){
+            this.type = 'password';
+            this.value = '';
+            this.style.color = 'rgb(20, 20, 20)';
+            flag1 = 0;
+            }
+        }
+        input1.onblur = function(){//失去焦点输入密码提示恢复
+            if(input1.value == ''){
+                input1.style.color = 'rgb(133, 135, 136)';
+                input1.type = 'text';
+                input1.value = "请输入密码/1234";
+                flag1 = 1;
+            }
+            if(input1.value.length<4){
+                input1.type = 'text';
+                input1.style.color = 'red';
+                input1.value = "请输密码名4位以上";
+            }
+        }
+
+        img.onclick = function () {//输入密码，隐藏/查看
+            if (flag == 1){
+                input1.type = 'text';
+                this.src = 'open.png';
+                flag=0;
+            }else{
+                input1.type = 'password';
+                this.src = 'close.png'
+                flag=1;
+            }
+        }
+        button0.onclick = function() {
+            if((input0.value == '123')&&(input1.value == '1234')){
+                this.innerHTML = '已登录';
+                alert('用户：123'+'\n'+'登录成功！');
+                
+            }
+            else{
+                alert('用户名或密码错误！');}
+            
+        }
+        button0.onmouseover = function() {
+            box3.style.display = 'block';
+        }
+        button0.onmouseout = function() {
+            box3.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

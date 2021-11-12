@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(201, 86, 86);
+        }
+    </style>
+<body>
+    <div>123
+        <a href="https://cn.bing.com/">百度</a>
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        var as = div.children[0];
+        div.onclick = function(event){
+            console.log(event);
+            console.log(window.event);
+        }
+        div.addEventListener('click',function(event){
+            console.log(event.target);
+            console.log(window.event);
+        },)
+        as.addEventListener('click',function(event){
+            console.log(event.target);
+            console.log(window.event);
+            // event.preventDefault();//阻止默认行为
+            event.returnValue=false;
+        },)
+    </script>   
+</body>
+</html>

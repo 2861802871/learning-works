@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.实现简易的模板引擎</title>
+    <script src="./myselftemplate.js"></script>
+</head>
+
+<body>
+    <div id="bigbox">
+    </div>
+    <script type="text/html" id="tpl-probox">
+        <div class="box">
+            <div>姓名：{{name}}</div>
+            <div>性别：{{  gender}}</div>
+            <div>年龄：{{age }}</div>
+            <div>地址：{{address }}</div>
+        </div>
+    </script>
+    <script>
+        var data = { name: 'zs', gender: '男', age: 18, address: '本溪' }
+        // 调用模板引擎
+        var htmlstr = template('tpl-probox', data);
+        // 渲染
+        document.getElementById('bigbox').innerHTML = htmlstr
+
+    </script>
+</body>
+
+</html>

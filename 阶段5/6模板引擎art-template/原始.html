@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原始</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <h3 id="title"></h3>
+    <div id="uname">姓名：</div>
+    <div id="age">年龄：</div>
+    <div id="regTime">注册时间：</div>
+    <div>爱好：
+        <ul id="hobby">
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var data = {
+            title: '注册信息表',
+            uname: '张三',
+            age: '20',
+            regTime: new Date(),
+            hobby: ['干饭', '睡觉', '干饭']
+        }
+        var rows = []
+        $(function () {
+            $('#title').append(data.title)
+            $('#uname').append(data.uname)
+            $('#age').append(data.age)
+            $('#regTime').append(data.regTime)
+            $.each(data.hobby, function (i, item) {
+                rows.push('<li>' + item + '</li>')
+            })
+            // 1.清除ul中的内容 2.渲染到HTML
+            $('#hobby').empty().append(rows.join(''))
+            // $('#hobby').empty().append(rows.join(''))
+        })
+    </script>
+
+</body>
+
+</html>

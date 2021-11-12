@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str='';
+        for(var i=1;i<10;i++){
+            for(var j=1;j<=i;j++){
+                str =str+j+'x'+i+'='+i*j+'\t';
+                
+            }
+            console.log(str);
+            str='';
+        }
+        var a=10;
+        do{
+            console.log('wan');
+        }while(a--);
+
+        for(var i=1;i<=5;i++)
+        {
+            if(i==3){continue;}//跳过3
+            console.log('吃'+i+'个包子');
+        }
+
+        for(var i=1;i<=5;i++)
+        {
+            if(i==3){break;}//跳出整个循环
+            console.log('吃'+i+'个包子');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

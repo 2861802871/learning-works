@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(231, 222, 222);
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="co">1234</div>
+    <ul id="nav" class="nav1">
+        <li>zhifou</li>
+        <li>zhifou</li>
+        <li>zhifou</li>
+        <li>zhifou</li>
+        <li>zhifou</li>
+    </ul>
+    <script>
+        var co = document.getElementById('co');//根据id获取元素
+        console.log(co);
+        console.log(typeof co);
+        console.dir(co);
+        
+        var li = document.getElementsByTagName('li');//通过标签名获取
+        console.dir(li);
+        var nav = document.getElementById('nav');//通过标签名获取
+        console.dir(nav);
+
+        var lis = nav.getElementsByTagName('li');
+        console.dir(lis);
+        var calas = document.getElementsByClassName('nav1');
+        console.dir(calas);
+        var xzq = document.querySelector('#nav')
+        console.dir(xzq);
+
+        var bod = document.body;
+        console.dir(bod);
+
+        var htm = document.documentElement;
+        console.dir(htm);
+    </script>
+</body>
+</html>

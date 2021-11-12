@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里百秀</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 750px;
+            margin:10px auto;
+        }
+        ul{
+            list-style:none;
+        }
+        ul li{
+            float: left;
+            width:93.75;
+            font-size: 25px;
+            height:40px;
+            background-color: rgb(0, 139, 30);
+        }
+
+        /* 超小屏幕小于768px*/
+        @media screen and (max-width:767px){
+            .container{
+                width: 100%;
+            }
+            .container ul li{
+                width:33.33%;
+            }
+
+    </style>
+</head>
+<body>
+    <a class="btn btn-default" href="#" role="button">Link</a>
+    <span class="glyphicon glyphicon-heart"></span>
+    <!-- 布局容器 -->
+    <div class="container">
+        <ul>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+        </ul>
+    </div>
+</body>
+</html>

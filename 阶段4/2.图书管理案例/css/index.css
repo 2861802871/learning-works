@@ -1,0 +1,14 @@
+body{margin-left: .15625rem;}
+.add{
+    margin: .104167rem auto;
+}
+table{
+    margin: 0 auto;
+    margin-top: .052083rem;
+    width: 90%;
+}
+thead tr th,tbody tr td {
+    width: .15625rem;
+/* text-align: center; */
+border: .005208rem black solid;
+}

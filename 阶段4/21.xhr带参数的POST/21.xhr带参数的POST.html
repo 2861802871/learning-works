@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest()
+        // 添加
+        xhr.open('POST', 'http://www.liulongbin.top:3006/api/addbook')
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        xhr.send('bookname=水浒传&author=斯耐庵&publisher=上海图书出版社')
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+
+        // 获取目录
+        var xhr1 = new XMLHttpRequest()
+        xhr1.open('GET', 'http://www.liulongbin.top:3006/api/getbooks')
+        // 调用send函数
+        xhr1.send()
+        // 监听onreadStatechange事件
+        xhr1.onreadystatechange = function () {
+            if (xhr1.readyState == 4 && xhr1.status == 200) {
+                console.log('完成');
+                console.log(xhr1.responseText);
+            } else {
+                if (xhr1.readyState == 1) { console.log('载入...'); }
+                else if (xhr1.readyState == 2) { console.log('载入完成'); }
+                else if (xhr1.readyState == 3) { console.log('解析...'); }
+            }
+        }
+        var data = [
+            [1, 2, 3, 4],
+            [9, 8, 7, 6],
+            ['a', 'b', 'c', 'd']
+        ]
+        console.log(data[2][0]);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/template-web.js"></script>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/html" id="temp">
+        <!-- 条件 -->
+    <h3>{{if flag == 1}}flag值为真{{else if flag == 0}}flag {{/if}}
+        {{if a == 1}}a值为真{{else if a == 0}}a值为假 {{/if}}
+    </h3>
+    <!-- 循环 显示索引和内容-->
+    <h3>
+        {{each hobby}}<li>{{$index}}.{{$value}}</li>{{/each}}
+    </h3>
+    </script>
+    <script>
+        var data = {
+            flag: 1,
+            a: 0,
+            // hobby: ['吃饭', '睡觉', '敲代码', '看电影']
+            hobby: ['黄沙百战穿金甲，不破楼兰终不还', '他日若遂凌云志，敢笑黄巢不丈夫', '从此烟雨落金城，一人撑伞两人人行']
+        }
+        var contentData = template('temp', data);
+        console.log(contentData);
+        $('#content').html(contentData)
+    </script>
+</body>
+
+</html>

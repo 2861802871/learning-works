@@ -1,0 +1,108 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px!important;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  *,
+  *:before,
+  *:after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+body {
+  width: 10rem;
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 750px;
+  line-height: 1.5;
+  font-family: Arial, Helvetica;
+  background-color: #f2f2f2;
+}
+.search-cnotent {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 1.173333rem;
+  background-color: #FFC001;
+}
+.classify {
+  width: 0.586667rem;
+  height: 0.933333rem;
+  background-color: #c5bbbb;
+  margin: 0.13333333rem 0.33333333rem 0.13333333rem 0.32rem;
+  background: url(../images/classify.png) no-repeat 0 0;
+  background-size: 0.58666667rem auto;
+}
+.search {
+  flex: 1;
+  font-size: 0.33333333rem;
+  outline: none;
+  height:.88rem;
+  margin-top: .133333rem;
+}
+.search input{
+  width: 100%;
+  height:.88rem;
+  border-radius:.44rem;
+  border: 0;
+  outline: none;
+  font-size: .333333rem;
+  padding:0  0 0 .266667rem;
+}
+.login {
+  width: 1rem;
+  height: 0.93333333rem;
+  margin: 0.13333333rem;
+  font-size: 0.33333333rem;
+  color: #fff;
+  text-align: center;
+  line-height: 0.93333333rem;
+}
+.banner {
+  width: 10rem;
+  height: 4.90666667rem;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+}
+.ad {
+  display: flex;
+}
+.ad a {
+  flex: 1;
+}
+.ad a img {
+  width: 100%;
+  height: 100%;
+}
+nav {
+  width: 10rem;
+}
+nav a {
+  display: block;
+  text-decoration: none;
+  width: 2rem;
+  height: 1.86666667rem;
+  margin-bottom: 0.53333333rem;
+  float: left;
+  text-align: center;
+}
+nav a img {
+  display: block;
+  width: 1.09333333rem;
+  height: 1.09333333rem;
+  margin: 0.4rem auto 0px;
+  margin-bottom: .4rem;
+}
+nav a span {
+  font-size: 0.33333333rem;
+  color: #333;
+  
+}

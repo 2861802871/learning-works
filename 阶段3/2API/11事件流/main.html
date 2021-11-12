@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            position: relative;
+        }
+        .father{
+            margin-top: 100px;
+            position: relative;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgb(156, 160, 167);
+        }
+        .son{
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgb(129, 34, 184);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // var father = document.querySelector('.father');//捕获先父亲后儿子
+        // var son = father.children[0];
+        // father.addEventListener('click',function(){
+        //     alert('father');
+        // },true);
+
+        // son.addEventListener('click',function(){
+        //     alert('son');
+        // },true);
+
+        var father = document.querySelector('.father');//冒泡先儿子后父亲
+        var son = father.children[0];
+        father.addEventListener('click',function(e){
+            alert('father');
+        },false);
+
+        son.addEventListener('click',function(e){//阻止冒泡到此为止不再冒泡父亲
+            alert('son');
+            // e.stopPropagation();
+            if (e&&e.stopPropagation()){//兼容性写法
+                e.stopPropagation();
+            }else{
+                window.event.cancelBubble = true;
+            }
+        },false);
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            margin: 20px auto;
+        }
+        .box button{
+            display: block;
+            float: left;
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+    </div>
+    <script>
+        var button = document.getElementsByTagName('button');
+        for(var i = 0;i<button.length;i++){
+            button[i].onclick = function(){
+                console.log('11');
+                for(var j = 0;j<button.length;j++){
+                button[j].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'red';   
+            } 
+        }
+
+    </script>
+</body>
+</html>

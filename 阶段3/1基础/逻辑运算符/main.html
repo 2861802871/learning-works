@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // prompt(cnm)
+        console.log(3>2);
+        console.log(1&&0);
+        console.log(1||0);
+        console.log(!0==1);
+
+        var str='wanzg~~';
+        var num=7;
+        console.log(num>5&&str.lenght>=num);
+        console.log(num<5&&str.lenght>=num);
+        console.log(!(num<10));
+        console.log(!(num>10||str.lenght>=num));
+
+        // 逻辑中断与
+        console.log(123&&456);//1真返回2
+        console.log(null&&456);//1假返回1
+        console.log(123&&0&&456);
+
+        // 逻辑中断与或
+        console.log(123||456);//1真返回1
+        console.log(null||456);//1假返回2
+        console.log(123||0||456);
+
+        var num=0;
+        console.log(123||num++);//123
+        console.log(num);       //0
+
+        // 赋值运算符
+        var age=10;
+        console.log(age+=10);//20
+        console.log(age-=10);//10
+        console.log(age*=10);//100
+        console.log(age/=10);//10
+        console.log(age%=10);//0
+        if (condition) {
+            
+        }
+        else if (condition) {
+            
+        } else {
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

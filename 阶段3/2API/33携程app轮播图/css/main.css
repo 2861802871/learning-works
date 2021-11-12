@@ -1,0 +1,176 @@
+*{margin: 0;
+    padding: 0;
+}
+body{
+    height: 1300px;
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+    color:#000;
+    background-color: #f2f2f2;
+    overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+}
+/* 返回顶部模块 */
+.goback{
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background:url(../images/back.png) no-repeat;
+    background-size: 30px 38px;
+    z-index: 3;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/* 顶部搜索框 */
+.search-index{/*固定定位*/
+    z-index: 1;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);/*兼容老版本浏览器*/
+    transform: translateX(-50%);
+    width: 100%;
+    height: 44px;
+    background-color: #f6f6f6;
+    border-top:1px solid #ccc ;
+    border-bottom:1px solid #ccc ;
+    /* 固定定位于父级没有关系，是根据屏幕的，所以要重新限制宽度大小 */
+    max-width: 540px;
+    min-width: 320px;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: #222;
+}
+
+.search{
+    position:relative;
+    flex:1;
+    height: 27px;
+    margin:7.5px 10px ;
+    border: 1px solid #ccc;
+    border-radius:8px;
+    color: rgb(119, 118, 118);
+    font-size: 12px;
+    /* font-weight: bold; *//*加粗*/
+    line-height:25px;
+    text-indent:25.5px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.2);
+    /* background-color: rgb(171, 235, 231); */
+}
+.search::before{
+    content: "";
+    position: absolute;
+    top: 5.5px;
+    left: 5px;
+    width: 14px;
+    height: 14px;
+    background:url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+
+.user{
+    width: 44px;
+    height: 44px;
+    /* background-color: rgb(62, 188, 192); */
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+}
+.user::before{
+    content:"";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background:url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin:3px auto 0px;
+}
+/* 焦点图 */
+.focus{
+    overflow: hidden;
+    position: relative;
+    padding-top: 44px;}
+
+.focus ul{
+    overflow: hidden;
+    margin-left: -100%;/*将复制来的第一张图左移显示正常第一张*/
+    width: 500%;
+}
+/* ui li 浮动 */
+.focus ul li{
+    width: 20%;
+    float: left;
+}
+.focus ul li img{
+    width: 100%;
+}
+/* 小圆点加定位 */
+.focus ol{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+/* 小圆点加样式 */
+.focus ol li{
+    list-style-type: none;
+    display: inline-block;/* 一行显示*/
+    width: 6px;
+    height: 6px;
+    border-radius: 1.5px;
+    background-color: rgba(255, 255, 255, 0.781);
+    transition: all 0.5s;
+}
+.focus ol .current{
+    width: 15px;
+}
+
+/* 局部导航栏 */
+.local-nav{
+    height: 64px;
+    margin:2px 2px;
+    background-color:white;
+    border-radius:8px;
+    display: flex;
+}
+.local-nav li{
+    flex: 1;
+}
+.local-nav a{
+    display: flex;
+    flex-direction: column;/*主轴设置为Y*/
+    align-items: center;/*单行侧轴居中对齐*/
+    font-size: 12px;
+}
+
+.local-nav-icon{
+    width: 32px;
+    height: 32px;
+    margin-top:8px;
+    background:url(../images/localnav_bg.png) no-repeat 0px 0px;
+    background-size:32px auto;
+}
+.local-nav li:nth-child(2) .local-nav-icon{
+    /* background:url(../images/localnav_bg.png) no-repeat 0 -32px;
+    background-size:32px auto; *//*等同于下面*/
+    background-position:0 -32px;
+}
+.local-nav li:nth-child(3) .local-nav-icon{
+    background-position:0 -64px;
+}
+.local-nav li:nth-child(4) .local-nav-icon{
+    background-position:0 -96px;
+}
+.local-nav li:nth-child(5) .local-nav-icon{
+    background-position:0 -128px;
+}

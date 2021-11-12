@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="animationPackage.js"></script>
+    <style>
+        body{
+            position: relative;
+        }
+        .div0{
+            position: absolute;
+            left: 0;
+            top: 60px;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(244, 187, 2);
+        }
+        .sliderbar{
+            
+            position: relative;
+            margin: 300px;
+       
+        }
+        .span{
+            z-index: 1;
+            width: 40px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgb(238, 147, 11);
+            color: white;
+            position: absolute;
+            top: 0px;
+            left:0px;
+        }
+        .con{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            background-color: rgb(238, 56, 11);
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            left:0px;
+        }
+    </style>
+</head>
+<body>
+    <button>点击启动</button>
+    <div class="div0"></div>
+    <div class="sliderbar">
+        <div class="span">←</div>
+        <div class="con">问题反馈</div>
+    </div>
+    <script>
+        var div0 = document.querySelector('.div0'); 
+        var btn = document.querySelector('button');
+
+        var sliderbar = document.querySelector('.sliderbar');
+        var span = document.querySelector('.span');
+        var con = document.querySelector('.con');
+
+        function callback() {//回调函数
+            // obj.style.backgroundColor = 'red';
+            div0.style.backgroundColor = 'green'
+            // alert('123');
+        }
+        btn.addEventListener('click',function(){
+            donghua(div0,600,callback);
+        });
+        
+        sliderbar.addEventListener('mouseenter',function(){//左移
+            
+            donghua(con,-160,function(){
+                span.innerHTML = '→';
+            });
+            
+            // con.style.display = 'block';
+        })
+        sliderbar.addEventListener('mouseleave',function(){//恢复
+            // con.style.display = 'none';
+            donghua(con,0,function(){
+                span.innerHTML = '←';
+            });
+            
+        })
+    </script>
+    </script>
+</body>
+</html>

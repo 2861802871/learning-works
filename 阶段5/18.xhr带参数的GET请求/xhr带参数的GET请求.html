@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>带参数的GET请求</title>
+</head>
+
+<body>
+    <script>
+        // 创建xhr对象
+        var xhr = new XMLHttpRequest()
+        // 调用open函数
+        xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks?id=1')
+        // 调用send函数
+        xhr.send()
+        // 监听onreadStatechange事件
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log('完成');
+                console.log('返回：' + xhr.responseText);
+            } else {
+                if (xhr.readyState == 1) { console.log('载入...'); }
+                else if (xhr.readyState == 2) { console.log('载入完成'); }
+                else if (xhr.readyState == 3) { console.log('解析...'); }
+            }
+        }
+    </script>
+</body>
+
+</html>

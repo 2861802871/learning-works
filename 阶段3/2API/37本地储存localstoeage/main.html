@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" value="" class="input1">
+        <input type="checkbox" class="input2" value="显示目标">
+        <button class="set">储存</button>
+        <button class="get">获取</button>
+        <button class="remove">删除</button>
+        <button class="clear">全部删除</button>
+        <div class="div0"></div>
+    </div>
+
+    <script>
+        var ipt = document.querySelector('.input1');
+        var ipt2 = document.querySelector('.input2');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var clear = document.querySelector('.clear');
+        var div0 = document.querySelector('.div0');
+        var num = 0;
+
+        
+        if(localStorage.getItem('uname0')){
+        var vall = localStorage.getItem('uname0');
+        div0.innerHTML = vall;
+        }
+
+        ipt2.addEventListener('click',function(){
+            if(this.checked){
+                var vall = localStorage.getItem('uname0');
+                div0.innerHTML = vall;
+            }else{
+                div0.innerHTML = null;
+            }
+        });
+        // 储存
+        set.addEventListener('click',function() {
+            var val = ipt.value;
+            localStorage.setItem('uname'+ num +'',val);
+            num++;
+        })
+        // 获取
+        get.addEventListener('click',function() {
+                var val = localStorage.getItem('uname0');
+                div0.innerHTML = val;
+            
+        });
+        // 移除
+        remove.addEventListener('click',function() {
+            localStorage.removeItem('uname'+ num +'');
+            num == 0 ? num : num--;
+        });
+        // 全部移除
+        clear.addEventListener('click',function() {
+            localStorage.clear();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fn(){              //arguments存储所以实参的伪数组
+           console.log(arguments); 
+           for(var i=0;i<arguments.length;i++){
+            console.log(arguments[i]); 
+           }
+        }
+        fn(1,2,3,4);
+        // 求函数最大值
+        function max()
+        {   var max=arguments[0];
+            for(var i=0;i<arguments.length;i++){
+                if(max<arguments[i])
+                {
+                    max=arguments[i];
+                }
+            }
+             return max;
+        }
+        console.log(max(1,2,3,4,6,3));
+
+        // 数组翻转
+        function Flip()
+        {
+            var newArr = [];
+            for(i=0;i<arguments.length;i++){
+                newArr[i]=arguments[arguments.length-1-i];
+            }
+            return newArr;
+        }
+        console.log(Flip(1,2,3,4));
+
+        console.log(max(1,2,3,4,6,3));
+
+        // 冒泡排序
+        function bubbleSort(str)
+        {   for(var j=0;j<str.length;j++)
+            {
+            for(var i=0;i<str.length;i++){
+                if(str[j]<str[i])   
+                {   
+                    var min;
+                    min=str[j];
+                    str[j]=str[i];
+                    str[i]=min;
+                }
+            }
+            }
+             return str;
+        }
+        var varr1=bubbleSort([12,24,3,45]);
+        console.log(varr1);
+
+        // 函数表达式
+        var fun = function(num){
+            console.log('函数表达式');
+            console.log(num);
+        }
+        fun('pink');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <script>
+        $(function() {
+
+            $('button').click(function() {
+                $(this).css('backgroundColor','rgb(255,255,0)');//this不用引号
+                $(this).siblings('button').css('backgroundColor','');//清除兄弟
+
+            });
+
+        })
+    </script>
+</body>
+</html>

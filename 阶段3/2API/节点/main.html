@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>第1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>最后</li>
+    </ul>
+    <a>
+        <li>1</li>
+    </a>
+    <script>
+        var li = document.querySelectorAll('li');
+        var ul = document.querySelector('ul');
+        var a = document.querySelector('a');
+        //添加自定义属性
+        ul.setAttribute('ass',1);
+        console.log(ul.getAttribute('ass'));//获取属性ass打印出来
+
+        console.log(li[0].parentNode);//获取父节点
+        var ch = ul.childNodes;//1获取子节点包含文本
+        console.log(ch);
+
+        var ch1 = ul.children;
+        console.log(ch1);//2获取子元素只获取元素不获取文本
+
+        console.log(ul.firstChild.nodeType);//获取第一个子节点是文本换行无法显示所以检测类型是3
+        console.log(ul.lastChild.nodeType);//最后一个子节点是文本换行无法显示所以检测类型是3
+
+        console.log(ul.firstElementChild);//直接获取第一个元素节点 i9
+        console.log(ul.lastElementChild);////直接获取最后一个元素节点 i9
+
+        //实际开发
+        console.log(ul.children[0]);//第一个子元素兼容性好
+        console.log(ul.children[ul.children.length-1])//最后一个字元素[长度-1]
+
+        //兄弟节点
+        console.log(ul.nextSibling); //包含元素文本
+        console.log(ul.previousSibling);//包含元素文本
+
+        console.log(ul.nextElementSibling); //包含元素  i9
+        console.log(ul.previousElementSibling);//包含元素  i9
+
+        //创建节点
+        var li0 = document.createElement('li');//创建
+        a.appendChild(li0);//添加到末尾
+        console.log(a);
+
+        var li1 = document.createElement('li');//创建
+        a.insertBefore(li1,a.children[0]);//添加到开头
+        console.log(a);
+
+        //移除节点
+        a.removeChild(a.children[0]);
+        console.log(a);
+
+        //复制节点
+        var li2 = a.children[0].cloneNode();//0/false
+        a.appendChild(li2);
+        console.log(a);
+
+        var li2 = a.children[0].cloneNode(1);//true
+        a.appendChild(li2);
+        console.log(a);
+    </script>
+</body>
+</html>

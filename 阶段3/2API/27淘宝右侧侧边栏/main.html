@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="animationPackage.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+        }
+        .bigBox{
+            position: relative;
+        }
+        .slider-bar{
+            width: 5%;
+            float: right;
+            margin: 0.4%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            background-color: rgb(192, 190, 54);
+            font-size: 0.8em;
+
+            position: absolute;
+            top: 300px;
+            left: 95%;
+        }
+        .goback{
+            cursor: pointer;
+            display: none;
+        }
+        
+        .body1,.body2,.body3,.titlee,.banner{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .titlee{
+
+            height: 200px;
+            background-color: rgb(221, 206, 73);
+            margin: 10px auto;
+            line-height: 200px;
+        }
+        .banner,.body1,.body2,.body3{
+            height: 500px;
+            line-height: 500px;
+            background-color: rgb(73, 221, 172);
+            margin-bottom: 10px;
+        }
+        .banner{  
+            background-color: rgb(145, 221, 73);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="bigBox">
+        <div class="slider-bar">
+            <div>banner</div>
+            <div>body</div>
+            <div class="goback">返回顶部</div>
+        </div>
+        <div class="titlee">标题</div>
+        <div class="banner">banner</div>
+        <div class="body1">body1</div>
+        <div class="body2">body2</div>
+        <div class="body3">body3</div>
+    </div>
+
+    <script>
+        var sliderbar = document.querySelector('.slider-bar');
+        var goback = sliderbar.querySelector('.goback');
+        var banner = document.querySelector('.banner');
+        var bannertop = banner.offsetTop;
+        var sliderbartop = sliderbar.offsetTop - bannertop;
+        document.addEventListener('scroll',function() {
+            console.log(window.pageYOffset);
+            if(window.pageYOffset >= bannertop){
+                sliderbar.style.position = 'fixed';
+                sliderbar.style.top = sliderbartop+'px';
+                goback.style.display = 'block';
+            }else{
+                sliderbar.style.position = 'absolute';
+                goback.style.display = 'none';
+                sliderbar.style.top = 300+'px';
+            }
+        });
+        goback.addEventListener('click',function() {
+            donghua(window,0);//回到最顶端//Y的值是0
+        });
+    </script>
+</body>
+</html>

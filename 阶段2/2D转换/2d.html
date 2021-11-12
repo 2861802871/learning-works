@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div[class="l2"]{
+            /* display: inline-block; */
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            float:left;
+        }
+        div[class="l1"]{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(26, 141, 170);
+            position:relative;
+
+            transform:translate(400px,0)
+        }
+        .l11{
+            width: 40px;
+            height: 40px;
+            background-color: rgb(162, 31, 189);
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="l1">
+        <div class="l11">居中</div>
+    </div>
+    <div class="l2">2</div>
+</body>
+</html>

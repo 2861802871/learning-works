@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+       div{
+           width: 200px;
+           height: 200px;
+           background-color: rgb(202, 69, 69);
+       }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            var object = {
+                id:2,
+                uname:"andy",
+                msg:{
+                    sex:"男"
+                }
+            }
+            var obj = {
+                id:3,
+                age:18,
+                weight:90,
+                msg:{
+                    height:175
+                }
+            }
+            // $.extend(false,object,obj);//浅拷贝复杂数据只拷贝地址
+            // obj.msg.height = 180;
+            console.log(object);
+            $.extend(true,object,obj);//深拷贝  完全拷贝
+            obj.msg.height = 190;
+            console.log(object);
+     });
+    </script>
+</body>
+</html>

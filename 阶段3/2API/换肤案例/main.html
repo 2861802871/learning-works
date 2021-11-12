@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background:url(1.jpg) no-repeat center top;
+        }
+        .box{
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .box li{
+            list-style: none;
+            width: 100px;
+            padding:0 4px;
+            float: left;
+            cursor: pointer;
+        }
+        .box li img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <li><img src="1.jpg" alt=""></li>
+        <li><img src="2.jpg" alt=""></li>
+        <li><img src="3.jpg" alt=""></li>
+        <li><img src="4.jpg" alt=""></li>
+        <li><img src="5.jpg" alt=""></li>
+        <li><img src="6.jpg" alt=""></li>
+        <li><img src="7.jpg" alt=""></li>
+    </div>
+    <script>
+        var imgs = document.querySelector('.box').querySelectorAll('img');
+        // var imgs = document.querySelector('.baidu').querySelectorAll('img');
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].onclick = function(){
+                console.log('11');
+                var src = this.src;
+                document.body.style.backgroundImage = 'url('+src+')';
+            }
+        }
+    </script>
+</body>
+</html>

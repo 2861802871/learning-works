@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        window.addEventListener('load',function() {//后加载完
+            var i = 1234;
+            alert(i);
+        })
+        window.addEventListener('DOMContentLoaded',function() {//先加载玩DOM
+            var i = 33;
+            alert(i);
+        })
+        window.addEventListener('resize',function() {
+            console.log('检测到窗口发生变化！');
+            console.log('宽：'+window.innerWidth);
+            console.log('高：'+window.innerHeight);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

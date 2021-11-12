@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequet levele2新特性</title>
+</head>
+
+<body>
+    <script>
+        // 旧版XMLHttpRequest缺点
+        // 只能传输文本不能传输文件
+        // 传输数据时没有进度信息，只能提示完成没有
+
+        // FormData实例用法
+        var fd = new FormData()
+        fd.append('name', '小冰')
+        fd.append('age', 18)
+        fd.append('pw', 123456)
+
+
+        // 创建xhr对象
+        var xhr = new XMLHttpRequest()
+        // 设置请求时限
+        xhr.timeout = 3000
+        // 请求超时提示函数
+        xhr.ontimeout = function () {
+            alert('请求超时！')
+        }
+
+        // 调用open函数
+        xhr.open('POSt', 'http://www.liulongbin.top:3006/api/formdata')
+        // 调用send函数
+        xhr.send(fd)
+        // 监听onreadStatechange事件
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log('完成');
+                console.log(JSON.parse(xhr.responseText));
+            } else {
+                if (xhr.readyState == 1) { console.log('载入...'); }
+                else if (xhr.readyState == 2) { console.log('载入完成'); }
+                else if (xhr.readyState == 3) { console.log('解析...'); }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

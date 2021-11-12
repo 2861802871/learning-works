@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同源和跨域</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // 同源：协议http，域名www....com，端口号:3006  都相同
+        //跨域：若协议、域名、端口有任何一项不一样则为跨域
+        // 出现跨域的原因：浏览器的同源策略不允许非同源url之间进行资源交互
+        /*例：http://www.test.com/index.html
+              http://www.api.com/userlist
+              之间进行资源交互会失败，原因域名不同*/
+        // 同源策略拦截：正常可以发起请求，服务器也会响应相应的数据，只不过浏览器将响应回来的数据拦截，ajax无法获取
+        // 如何实现跨域数据请求
+        //     1.JSONP：出现早，兼容性好（兼容低版本IE），是前端程序员为解决跨域问题，被迫想出来的一种临时解决办法，缺点只支持GET，
+        //     2.CORS：出现晚，它是W3C标准，属于Ajax跨域请求的根本解决方案，支持GET和POST，缺点不兼容某些低版本浏览器
+        // 网页无法通过Ajax请求非同源数据接口，但是 < script > 标签不受同源策略的影响，可以通过src属性，请求非同源JS脚本
+        // 因此JSONP的实现，就是通过标签src属性，请求跨域的数据接口，并通过函数调用的形式，接收跨域接口响应回来的数据
+        function success(data) {
+            console.log(data)
+        }
+        $.ajax({
+            method: 'GET',
+            url: 'http://ajax.frontend.itheima.net:3006/api/jsonp',
+            data: {
+                name: 'zs',
+                age: 20,
+            },
+            success: function (res) {
+                console.log(res);
+            }
+        })
+    </script>
+    <script>
+        success({ name: '小冰', age: 20 });
+    </script>
+    <!-- <script src="http://ajax.frontend.itheima.net:3006/api/jsonp?callback=success&name=zs&age=18"></script> -->
+</body>
+
+</html>

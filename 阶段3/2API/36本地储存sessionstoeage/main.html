@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" value="">
+        <button class="set">储存</button>
+        <button class="get">获取</button>
+        <button class="remove">删除</button>
+        <button class="clear">全部删除</button>
+        <div class="div0"></div>
+    </div>
+
+    <script>
+        var ipt = document.querySelector('input');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var clear = document.querySelector('.clear');
+        var div0 = document.querySelector('.div0');
+        var num = 0;
+        // 储存
+        set.addEventListener('click',function() {
+            var val = ipt.value;
+            sessionStorage.setItem('uname'+ num +'',val);
+            num++;
+        })
+        // 获取
+        get.addEventListener('click',function() {
+                var val = sessionStorage.getItem('uname0');
+                div0.innerHTML = val;
+            
+        });
+        // 移除
+        remove.addEventListener('click',function() {
+            sessionStorage.removeItem('uname'+ num +'');
+            num--;
+        });
+        // 全部移除
+        clear.addEventListener('click',function() {
+            sessionStorage.clear();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery中jsonp的实现过程</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="button">发起JSONP数据请求</button>
+    <!-- 通过script标签的src属性实现跨域数据的访问的，采用在head动态创建和移除script标签发起JSONP数据请求。
+发起时创建，结束时移除 -->
+    <script>
+        $('#button').on('click', function () {
+            $.ajax({
+                url: 'http://ajax.frontend.itheima.ent:3006/api/jsonp?name=小冰',
+                dataType: 'jsonp',
+                success: function (res) {
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

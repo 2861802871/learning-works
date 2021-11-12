@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        table{
+            width: 50%;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,th{
+            border: 1px solid #333;
+        }
+        thead tr{
+            height: 40px;
+            background-color: #ccc;
+        }
+        tbody tr{
+            height: 30px;
+            
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        //数据
+        function Objects(uname,subject,score){
+            this.name = uname,
+            this.subject = subject,
+            this.score = score
+        }
+        var p1;var p2;var p3;var p4;
+        var dats = [
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+            p1 =new Objects('魏璎珞','javascript',100),
+            p2 =new Objects('弘历','javascript',90),
+            p3 =new Objects('傅恒','javascript',80),
+            p4 =new Objects('明玉','javascript',100),
+        ];
+
+        //算法
+        //行创建
+        var tbody = document.querySelector('tbody');
+        for(var i = 0;i < dats.length;i++){
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            //单元格
+            for(var k in dats[i]){
+                var td = document.createElement('td');
+                td.innerHTML = dats[i][k];
+                tr.appendChild(td);
+            }
+            //创建删除单元格
+            var td = document.createElement('td');
+            td.innerHTML = '<a href ="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+        var as = document.querySelectorAll('a');
+        for(var i =0;i < as.length;i++){
+            as[i].onclick = function(){
+                tbody.removeChild(this.parentNode.parentNode);//父.removeChild(子要移除的部分)/行的父亲是tbody./行是a的父亲的父亲
+            }
+        }
+
+    </script>
+</body>
+</html>

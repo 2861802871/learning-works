@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11111</title>
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        li,
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">123</div>
+    <script type="text/html" id="temp">
+        <h4>{{if flag == 1}}flag=1{{else if flag == 0}}flag=0{{/if}}</h4>
+        <ul>
+            {{each hobby}}<li>{{$index}}.{{$value}}</li>{{/each}}
+        </ul>
+    </script>
+    <script>
+        var data = {
+            flag: 0,
+            hobby: ['黄沙', '骆驼', '丝绸', '黄沙百战穿金甲，不破楼兰终不还', '他日若遂凌云志，敢笑黄巢不丈夫', '从此烟雨落金城，一人撑伞两人人行'],
+        }
+        var contentData = template('temp', data)
+        console.log(contentData);
+        $('#content').html(contentData)
+    </script>
+
+</body>
+
+</html>

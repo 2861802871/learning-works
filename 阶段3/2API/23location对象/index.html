@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="button0">返回</button>
+    <div></div>
+    <script>
+        var btn0 = document.querySelector('.button0');
+        var div = document.querySelector('div');
+        var params = location.search.substr(1);
+        var arr = params.split('=')
+        console.log(params);
+        console.log(arr);
+        div.innerHTML = arr[1]+'欢迎光临~~！';
+        btn0.addEventListener('click',function() {
+            history.back();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            position: relative;
+            background-color: rgb(156, 156, 156);
+        }
+        .son{
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(91, 199, 202);
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father');//offset 相关属性
+        var son = document.querySelector('.son');
+        console.log(son.offsetParent);
+        console.log(son.offsetTop+' '+son.offsetLeft+';'+son.offsetWidth+' '+son.offsetHeight);
+        console.log(father.offsetParent);
+        console.log(father.offsetTop+' '+father.offsetLeft+';'+father.offsetWidth+' '+father.offsetHeight);
+        // son.addEventListener('');
+
+        //获取鼠标在father盒子中的位置
+        father.addEventListener('mousemove',function(e) {
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            console.log(x+' '+y);
+            this.innerHTML = 'X坐标:'+x+' Y坐标:'+y;
+        });
+    </script>
+</body>
+</html>

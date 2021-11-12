@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <!-- <script src="jQuery.min.js"></script> -->
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+        div>li{
+            list-style-type:none;
+        }
+    </style>
+</head>
+<body>
+    <div>积一时之跬步，臻千里之遥程</div>
+    <div>积一时之跬步，臻千里之遥程</div>
+    <div>积一时之跬步，臻千里之遥程</div>
+    <div>
+        <li>积一时之跬步，臻千里之遥程</li>
+        <li class="a1">积一时之跬步，臻千里之遥程</li>
+        <li>积一时之跬步，臻千里之遥程</li>
+        <li>积一时之跬步，臻千里之遥程</li>
+    </div>
+    <script>
+        $(function() {//入口函数
+
+            // $(document).ready(function(){
+        //     $('div').hide();
+        // });
+        // $(function() {
+        //     $('div').hide();
+        //     $('div')[0].style.display = 'block';    
+        // });
+        // 改背景方法一dom
+        console.log($('div'));//伪数组
+        for(var i = 0;i < $('div').length;i++){
+            $('div')[i].style.backgroundColor = 'pink';
+        }
+
+        // 改背景方法二$
+        $('div').css('backgroundColor','#ccc')
+        $('div').css("color","red")
+
+        // 选择器
+        $('div:first').css('color','#aaa');//第一个元素
+        $('div:last').css('color','#bbb');//最后一个元素
+        $('div:eq(1)').css('color','#ddd');//索引号1
+        $('div:odd').css('backgroundColor','blue');//奇数
+        $('div:even').css('backgroundColor','green')//偶数 
+        
+        // 父子选择
+        $('li').parent().css('backgroundColor','white');//父
+        $('div').children('li').css('backgroundColor','red');//子
+        $('div').find('li').css('color','white')//后代
+        $('div>li:eq(1)').siblings('li').css('color','black')//兄弟选择器
+        $('div>li:eq(2)').nextAll().css('color','blue')//之后的所有元素不包含本身
+        $('div>li:eq(1)').prevAll().css('color','blue');//之前的所有元素不包含本身
+        $('div').eq(1).css('color','black')//索引号选择
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="content">1234</div>
+    <script type="text/html" id="temp">
+        <h3>{{regTime | add}}</h3>
+    </script>
+
+    <script>
+        template.defaults.imports.add = function (date) {
+            var y = date.getFullYear()
+            var m = date.getMonth() + 1
+            var d = date.getDate()
+
+            return y + '年' + m + '月' + d + '日'
+        }
+        var data = {
+            value: 2,
+            regTime: new Date(),
+
+        }
+        var contentData = template('temp', data)
+        console.log(contentData)
+        $('#content').html(contentData)
+    </script>
+</body>
+
+</html>

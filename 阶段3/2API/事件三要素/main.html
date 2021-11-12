@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 30px;
+            background-color: rgb(141, 235, 241);
+            line-height:  30px;
+            text-align: center;
+            border: 1px rgb(48, 48, 48) solid;
+        }
+        button{
+            /* list-style: none; */
+            outline: none;
+            background-color: rgb(155, 191, 224);
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">心动一下？</button>
+    <button id="btn1">显示系统时间</button>
+    <button id="btn2">显示系统时间</button>
+    <div id ="div">1234</div>
+    <div id ="div1">5678</div>
+    <script>
+
+function myDate(){//时间函数
+    var date=new Date();
+    var year=date.getFullYear();
+    var month=date.getMonth() + 1;
+    var date1=date.getDate();
+    var week=date.getDay();
+    var hours=date.getHours();
+    var minutes=date.getMinutes();
+    var seconds=date.getSeconds();
+    //十位加0方法2
+    hours=hours<9?'0'+hours:hours;
+    minutes=minutes<9?'0'+minutes:minutes;
+    seconds=seconds<9?'0'+seconds:seconds;
+    //周的显示
+    var week1=['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+    console.log(year + '年' + month + '月' + date1 + '日 ' + week1[week]+' '+hours+':'+minutes+':'+seconds);
+    return year + '年' + month + '月' + date1 + '日 ' + week1[week]+' '+hours+':'+minutes+':'+seconds;
+}
+
+        //点击一下按钮弹出一个对话框
+        var btn = document.getElementById('btn');    //获取元素
+        btn.onclick = function(){                      //事件类型  事件处理程序
+            alert('心动一下 心动一夏！');
+        }
+
+        var div = document.getElementById('div');
+        var div1 = document.getElementById('div1');
+        div.onclick = function(){
+            alert('123被选中了');
+        }
+
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        btn1.onclick = function(){
+            div.innerText = myDate();
+        }
+
+        div1.innerText = myDate();
+        btn2.onclick = function(){
+            div1.innerHTML = myDate();
+        }
+    </script>
+</body>
+</html>

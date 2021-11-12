@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{position: relative;}
+        .con{width: 171px;
+            border: 1px solid rgb(110, 110, 110);
+            border-radius: 2px;
+            display: none;
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            color: rgb(94, 93, 93);
+        }
+        .con::before{
+            display: block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            border-bottom: 1px solid rgb(110, 110, 110);
+            border-right: 1px solid rgb(110, 110, 110);
+
+            position: absolute;
+            top: 28px;
+            left: 80px;
+
+        }
+        .jd{
+            width: 171px;
+            border: 1px solid rgb(110, 110, 110);
+            border-radius: 1px;
+            color: rgb(59, 58, 58);
+        }
+        .search{
+            position: relative;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <div class="con">123</div>
+        <input type="text" placehonlder="请输入您的快递单号" class="jd">
+    </div>
+    <script>
+        var con = document.querySelector('.con');
+        var jd_input = document.querySelector('.jd');
+        jd_input.addEventListener('keyup',function() {
+            // console.log('shur');
+            if(this.value == ''){
+                con.style.display = 'none';
+            }else{
+                con.style.display = 'block';
+                con.innerText = this.value;
+                // con.style.width = this.width+'px';
+            }
+        });
+        jd_input.addEventListener('focus',function() {
+            if(this.value == ''){
+                con.style.display = 'none';
+            }else{
+                con.style.display = 'block';
+            }
+        });
+        jd_input.addEventListener('blur',function() {
+                con.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

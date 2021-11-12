@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var dog = {
+            uname:'可可',
+            type:'阿拉斯加',
+            age:5,
+            color:'棕色',
+            bark:function(){
+                console.log('汪汪');
+            },
+            showFilm:function(){
+                console.log('演电影');
+            }
+        }
+        console.log(dog.uname);
+        console.log(dog.type);
+        console.log(dog.age);
+        console.log(dog['color']);
+        dog.bark();
+        dog.showFilm();
+
+        var mingren=new Object;
+        mingren.uname='鸣人';
+        mingren.gender='男';
+        mingren.age=18;
+        mingren.skill=function(){
+        console.log('影分身术');
+        }
+        console.log('\n'+mingren.uname);
+        console.log(mingren.gender);
+        console.log(mingren.age);
+        mingren.skill();
+
+        // 构造函数
+        function Star(uname,sex,age,height,Where)
+        {
+            this.uname=uname, 
+            this.sex=sex, 
+            this.age=age, 
+            this.height=height,
+            this.Where=function(){
+                console.log(Where);
+            } 
+        } 
+        var lx = new Star('龙','男',18,175,'biu~');//用new来调用
+        console.log('\n'+lx.uname);
+        console.log(lx.sex);
+        console.log(lx.age);
+        console.log(lx.height);
+        lx.Where();
+
+        // 构造函数 创建两个英雄
+        function Figure(uname,type,blood,attack){
+            this.name=uname,
+            this.type=type,
+            this.blood=blood,
+            this.attack=function(){
+                console.log('攻击方式:'+attack);
+            }
+        }
+        var lp=new Figure('廉颇','力量型','500血量','近战');
+        var hy=new Figure('后羿','射手型','100血量','远程');
+        console.log('\n'+lp.name+lp.type+lp.blood);
+        lp.attack();
+        console.log('\n'+hy.name+hy.type+hy.blood);
+        hy.attack();
+        //对象遍历
+        for(var k in lp){
+            console.log(k);
+            console.log(lp[k]);
+        }
+        var button={
+            width:500,
+            heigth:200,
+            bgc:'red'
+        }
+        var car=new Object;
+        car.uname='baoma';
+        car.color='black';
+        for(var k in car){
+            console.log(car[k]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

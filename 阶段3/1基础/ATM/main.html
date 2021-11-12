@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var i=1;
+        var money=78;
+        money=Number(money);
+        while(i){
+            var business=prompt('选择要办理业务\n1.存钱\n2.取钱\n3.显示余额\n4.退出');
+            switch(business){
+            case '1':{
+                var Save=prompt('存入钱数');
+                Save=Number(Save);
+                money+=Save;
+                alert('存入'+Save+'元'+'\n'+'余额'+money+'元');
+            };break;
+            case '2':{
+                var Withdraw=prompt('取出钱数');
+                Withdraw=Number(Withdraw);
+                money-=Withdraw;
+                alert('取出'+Withdraw+'元'+'\n'+'余额'+money+'元');
+            };break;
+            case '3':{
+                alert('余额'+money+'元');
+            };break;
+            case '4':break;
+            default:alert('没有该业务！\n退出请输入4');
+            }
+            if(business==4){
+                i=0;   
+            }
+        }
+        alert('正在退出系统!');
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: relative;
+        }
+        input{
+            display: block;
+            height: 40px;
+            position: absolute; 
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            border-radius: 5px;
+            line-height: 50px;
+            font-size: 26px;
+            color: rgb(145, 145, 145);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" value="设计渲染主机">
+    </div>
+    <script>
+        var inpt = document.querySelector('input');
+        document.addEventListener('keyup',function(e) {
+            console.log(e.keyCode);
+            if(e.keyCode === 83){
+                inpt.focus();
+                if(inpt.value == "设计渲染主机"){
+                    inpt.value="";
+                }
+            }   
+        });
+        inpt.addEventListener('focus',function(e) {
+            if(inpt.value == "设计渲染主机"){
+                    inpt.value="";   
+                }  
+            
+        });
+        inpt.addEventListener('blur',function(e){
+            if (inpt.value == ''){
+                inpt.value = "设计渲染主机"; 
+            }
+                });
+    </script>
+</body>
+</html>

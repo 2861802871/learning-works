@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+
+    <button>下拉滑动</button>
+    <button>上拉滑动</button>
+    <button>切换滑动</button>
+    <div></div>
+    <script>
+        $(function() {
+            // 显示隐藏
+            $("button").eq(0).click(function() {
+                $('div').show(['slow']);
+            });
+            $("button").eq(1).click(function() {
+                $('div').hide([500]);
+            });
+            $("button").eq(2).click(function() {
+                $('div').toggle([500]);
+            }); 
+
+            // 滑动
+            $("button").eq(3).click(function(){
+                $("div").slideDown();
+            })    
+            $("button").eq(4).click(function(){
+                $("div").slideUp();
+            })
+            $("button").eq(5).click(function(){
+                $("div").slideToggle();
+            })
+        })
+    </script>
+</body>
+</html>

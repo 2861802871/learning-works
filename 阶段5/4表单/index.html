@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery.min.js"></script>
+</head>
+
+<body>
+    <form id="forml" action="/index.txt/" target="_self" method="POST">
+        <input type="text" value="用户名" name="email_or_mobile">
+        <input type="password" value="密码" name="password">
+        <button type="submit">登录</button>
+    </form>
+    <script>
+        $(function () {
+            $('#forml').submit(function (e) {
+                console.log('监听到表单提交事件！');
+                e.preventPefault();
+            })
+            $('#forml').on('submit', function (e) {
+                alert('监听到表单提交事件！')
+            })
+        })
+    </script>
+</body>
+
+</html>

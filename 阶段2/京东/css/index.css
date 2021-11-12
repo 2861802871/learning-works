@@ -1,0 +1,141 @@
+*{margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;/*清除点击高亮显示*/
+}
+input{
+    -webkit-appearance: none;/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+}
+
+/* 顶部 */
+body{
+    /* background-color: rgb(107, 107, 107); */
+    /* border: 1px solid red; */
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    line-height: 1.5;
+}
+.app{
+    height: 45px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.app ul li {
+    float: left;
+    height: 45px;
+    background-color: #333333;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+}
+.app ul li:nth-child(1){
+    width:8%;
+}
+.app ul li:nth-child(1) img{
+    width:15px;
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(2){
+    width:10%;
+}
+.app ul li:nth-child(2) img{
+    vertical-align: middle;
+    width: 30px;
+}
+
+
+.app ul li:nth-child(3){
+    width:57%;
+}
+
+
+.app ul li:nth-child(4){
+    width:25%;
+    background-color: #f63515;
+}
+
+/* 搜索栏 */
+.search-wrap{
+    height: 44px;
+    width: 100%;
+    position: fixed;/*固定定位*/
+    min-width: 320px;
+    max-width: 640px;
+    color: white;
+    overflow: hidden;
+}
+.search-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+    /* background-color: rgb(175, 64, 64); */
+}
+.search-btn::before{
+    content: "";
+    display:block;
+    width: 20px;
+    height: 18px;
+    background:url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px;/*背景图片缩放*/
+    margin:14px 0 0 14px;
+}
+.search-login{
+    position: absolute;
+    right:0;
+    top: 0;
+    width: 40px;
+    height: 44px;
+    text-align: center;
+    line-height:44px;
+    font-size:1.2em;
+    margin-right:6px;
+    /* background-color: rgb(33, 129, 185); */
+}
+.search{
+    height: 32px;
+    margin: 0 50px;
+    margin-top:6px;
+    background-color: rgb(255, 255, 255);
+    border-radius:15px;
+    position: relative;
+}
+.search .jd-icon{
+    width: 20px;
+    height: 15px;
+    position:absolute;
+    top: 9px;
+    left: 13px;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+.jd-icon::after{
+    content: "";
+    display:block;
+    height: 15px;
+    width: 3px;
+    border-left:1px solid black;
+    position: absolute;
+    right: -8px;;
+}
+.sou{
+    position: absolute;
+    top: 9px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+
+    background-color:pink;
+    /* background:url(../images/jd-sprites.png) no-repeat -81px 0; */
+    background:url(../images/jd-sprites.png) no-repeat -82px 0px;
+    background-size:198px auto;
+}

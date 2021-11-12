@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery实现JSONP数据GET请求</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $.ajax({
+            method: 'GET',
+            url: 'http://ajax.frontend.itheima.net:3006/api/jsonp?name=zs&age=19',
+            dataType: 'jsonp',
+            jsonp: 'cb',//将回调callback改为cd
+            jsonpCallback: 'bk',//将回调函数名改为bk
+            success: function (res) {
+                console.log('获取数据成功：');
+                console.log(res);
+            }
+        })
+    </script>
+</body>
+
+</html>

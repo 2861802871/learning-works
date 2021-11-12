@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace函数</title>
+</head>
+
+<body>
+    <script>
+        // replace函数替换字符串中的内容
+        // 例1  123替换
+        var str = '123456';
+        var pattern = /123/;
+        console.log(str.replace(pattern, '替换的字符'));
+
+        // 例2 {{name}}替换
+        var nameStr = '<div>我是{{name}}</div>';
+        var pattern1 = /{{([a-zA-Z]+)}}/;
+        var mindeStr = pattern1.exec(nameStr);
+        var over = nameStr.replace(mindeStr[0], '小冰');
+        console.log(over);
+    </script>
+</body>
+
+</html>

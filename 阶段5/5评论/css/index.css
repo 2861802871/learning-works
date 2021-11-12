@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 公共样式 */
+.public{
+    width: 95%;
+    margin: 0 auto;
+    border: 2px rgba(64, 199, 240, 0.993) solid;
+}
+.headerr{
+    padding-left: 20px;
+    background-color: rgb(82, 214, 247);
+    color: #ffffff;
+}
+.user{
+    margin-left: 20px;
+}
+/* 输入框边框 */
+input,textarea{
+    width: 100%;
+    /* border: 1px rgba(64, 199, 240, 0.993) solid; */
+}
+button{
+    background-color: rgba(64, 199, 240, 0.993);
+    border: none;
+    border-radius: 1px;
+}
+
+/* 评论展示 */
+.bodyy{
+    margin-top: 10px;
+}
+.main{
+    margin-top: 2px;
+    padding-left: 20px;
+    display: flex;
+    border-bottom: 1px rgba(64, 199, 240, 0.993) solid;
+}
+.main span:nth-child(1){
+    flex: 6;
+} 
+/* 品论人 */
+.main span:nth-child(2){
+    flex: 1;
+    background-color: rgba(64, 199, 240, 0.993);
+} 
+/* 品论时间 */
+.main span:nth-child(3){
+    flex: 1;
+    background-color: rgba(236, 186, 94, 0.993);
+} 

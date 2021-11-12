@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+<div class="content"></div>
+<script type="text/html" id="texts">
+    <h3>{{@text}}</h3>
+    <h3>{{content}}</h3>
+    </script>
+<script>
+    var data = {
+        text: '<h3>原文输出测试</h3>',
+        content: '<h3>原文输出测试</h3>',
+
+    }
+    var contentData = template('texts', data)
+    $('.content').html(contentData)
+</script>
+
+<body>
+
+</body>
+
+</html>

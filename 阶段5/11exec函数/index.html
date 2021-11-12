@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exec函数</title>
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="content">
+    </div>
+    <script type="text/html" id="tlp-exec">
+        <div class="div">
+            小冰的年龄+2={{age | uage}}
+        </div>
+    </script>
+
+    <script>
+        var data3 = {
+            name: '小冰',
+            age: 18
+        }
+        // 过滤器
+        template.defaults.imports.uage = function (data) {
+            var x = data
+            var y = 2
+            var z = x + y
+            return z
+        }
+        var htmlData = template('tlp-exec', data3)
+        console.log(htmlData)
+        $('#content').append(htmlData)
+
+        var data = 'hello word'
+        // 正则表达式
+        var pattern = /d/
+        // exec检索字符串匹配
+        console.log(pattern.exec(data))
+
+        // 分组提取
+        var str = '<div>我是{{name}}</div>'
+        // a到z  A到Z 字符可以连续重复多次
+        var pattern1 = /{{([a-zA-Z]+)}}/
+        var strData = pattern1.exec(str)
+        console.log(strData)
+
+        // replace函数，用一些字符替换另一些字符
+        var str1 = '123456'
+        // 123替换为abc
+        console.log(str1.replace('123', '替换的内容'))
+
+        var strData1 = str.replace(strData[0], '小冰')
+        str = str.replace(strData[0], data3.name)
+        $('#content').append(str)
+
+
+        // 多次replace
+        var str2 = '<div>{{name}}今年{{ age }}岁了</div>'
+        var pattern2 = /{{\s*([a-zA-Z]+)\s*}}/
+        var pattrenResult = pattern2.exec(str2)
+        str2 = str2.replace(pattrenResult[0], pattrenResult[1])
+        console.log(pattrenResult);
+
+        //   第一次匹配 name今年{{age}}岁了
+        console.log(str2);
+        $('#content').append(str2)
+
+        // 第二次匹配 name今年age岁了
+        pattrenResult = pattern2.exec(str2)
+        str2 = str2.replace(pattrenResult[0], pattrenResult[1])
+        console.log(str2);
+        $('#content').append(str2)
+
+        // 第三次匹配 null
+        pattrenResult = pattern2.exec(str2)
+        console.log(pattrenResult);
+
+        // while循环替换字符串  方法一
+        var str3 = '<div>{{name}}今年{{ age }}岁了</div>'
+        var pattern3 = /{{\s*([a-zA-Z]+)\s*}}/
+        var pattrenResult3 = null
+        while (pattern3.exec(str3) !== null) {
+            pattrenResult3 = pattern3.exec(str3)
+            str3 = str3.replace(pattrenResult3[0], pattrenResult3[1])
+        }
+        console.log(str3);
+        $('#content').append(str3)
+
+        // while循环替换字符串  方法二  结果不为null则执行循环否则跳出
+        str3 = '<div>{{name}}今年{{ age }}岁了</div>'
+        while (pattrenResult3 = pattern3.exec(str3)) {
+            // data3.属性   data3['属性字符串']
+            str3 = str3.replace(pattrenResult3[0], data3[pattrenResult3[1]])
+        }
+        console.log(str3);
+        $('#content').append(str3)
+        console.log(data3);
+        // 对象转字符串
+        var data4 = JSON.stringify(data3)
+        console.log(data4);
+        // 字符解析为对象
+        console.log(JSON.parse(data4));
+
+        // 对象转字符串
+        var xiaosi = {
+            name: '小思',
+            age: 18,
+            weight: '45kg'
+        }
+        console.log(JSON.stringify(xiaosi));
+
+
+        var i = 0
+        console.log(i++ + ++i);
+    </script>
+</body>
+
+</html>

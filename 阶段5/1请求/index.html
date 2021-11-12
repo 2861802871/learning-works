@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$.get()请求</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        button {
+            background-color: rgb(204, 248, 101);
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn0">get发起请求</button>
+    <button class="btn1">post提交数据</button>
+    <button class="btn2">ajax请求</button>
+    <button class="btn3">ajax提交</button>
+    <script>
+        // get
+        $('.btn0').on('click', function () {
+            $.get('http://www.liulongbin.top:3006/api/getbooks',function(res) {//不带参数
+            console.log(res);
+            // $.get('http://www.liulongbin.top:3006/api/getbooks', { id: 2 }, function (res) {//带参数 选取id为2的数据                   
+            //     console.log(res);
+            })
+        });
+        // post
+        $('.btn1').on('click', function () {
+            $.post('http://www.liulongbin.top:3006/api/addbook',{bookname: '乾坤未定',author: '你我皆牛马',publisher:'判头出版社'},function(res) {
+                console.log(res);
+            });
+        });
+
+        // ajax
+        $('.btn2').on('click', function () {
+            $.ajax({
+                type:'GET',
+                url:'http://www.liulongbin.top:3006/api/getbooks',
+                // data:{id: 1},
+                success:function(res) {
+                console.log(res);
+            }
+            }
+                );
+        });
+
+        $('.btn3').on('click', function () {
+            $.ajax({
+                type:'POST',
+                url:'http://www.liulongbin.top:3006/api/addbook',
+                data:{bookname: '乾坤未定',author: '你我皆牛马',publisher:'判头出版社'},
+                success:function(res) {
+                console.log(res);
+            }
+            }
+                );
+        });
+
+
+    </script>
+</body>
+
+</html>

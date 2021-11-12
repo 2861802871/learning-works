@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建类
+        class cumputer {
+            constructor(uname,cpu,ram) {
+                this.uname = uname;
+                this.cpu = cpu;
+                this.ram = ram;
+            }
+            // 方法不用写functoin
+            // 多个函数不需要,隔开
+            game() {
+                console.log('玩游戏');
+            }
+            office() {
+                console.log('办公');
+            }
+            money() {
+                console.log('100元');
+            }
+        }
+
+
+        // 实例化
+        var huasuo = new cumputer('华硕','锐龙3','12G');
+        var jixiegeming = new cumputer('机械革命','i78750','16G');
+        console.log(huasuo,jixiegeming,huasuo.office,jixiegeming.game);
+
+        // 继承
+        class Son extends cumputer{
+        }
+        var son = new Son();
+        son.money();
+    </script>
+</body>
+
+</html>

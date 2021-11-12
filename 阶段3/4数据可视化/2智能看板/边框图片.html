@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 边框图片设置 */
+        div{
+            width: 400px;
+            height: 200px;
+            border: 15px solid red;
+            border-width: .6375rem .475rem .3625rem 1.65rem;
+            /* 边框图片位置 */
+            border-image-source: url(images/border.png);
+            /* 边框图片四角切图 上右下左 */
+            border-image-slice: 51 38 20 132;
+            /* 边框图宽度 不影响边框宽度 */
+            /* border-image-width: 20px; */
+            /* 默认：拉伸（stretch） 平铺(repeat) 铺满(round) */
+            /* border-image-repeat:stretch; */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

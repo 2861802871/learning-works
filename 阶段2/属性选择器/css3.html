@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 属性选择器 -->
+    <style>
+        /* div li[class="tt"]{background-color: aqua;}
+        div li[class^="t"]{background-color: rgb(236, 70, 70);}
+        div li[class$="5"]{background-color: rgb(29, 135, 197);}
+        div li[class*="8"]{background-color: rgb(43, 175, 17);}  */
+        /* 结构选择器 */
+        div li:first-child{background-color: rgb(48, 65, 161);}
+        div li:last-child{background-color: rgb(28, 173, 113);}
+        div li:nth-child(odd){background-color: rgb(78, 196, 127);}
+        div li:nth-child(even){background-color: rgb(207, 70, 166);}
+        /* 结构选择器 分标签类型*/
+        p{width:100%px;height: 20px;}
+        div p:first-of-type{background-color: rgb(52, 158, 207);}
+        div p:last-of-type{background-color: rgba(24, 194, 224, 0.644);}
+        div p:nth-of-type(2n){background-color: rgb(26, 90, 42);}
+        div p:nth-of-type(2n+1){background-color: rgb(95, 25, 25);}
+        /* 伪类元素选择器 */
+        div[class="xzpq"]::before{content:"我";}
+        div[class="xzpq"]::after{content:"小猪佩奇";}
+        div[class="xzpq"]{background-color: rgb(52, 158, 207);font-size: 30px;color: white;}
+
+    </style>
+</head>
+<body>
+    <!-- 属性选择器 -->
+    <div class="lx0">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <li class="t1">1</li>
+        <li class="t2">2</li>
+        <li class="t3">3</li>
+        <li class="t4">4</li>
+        <li class="t5">5</li>
+        <li class="t6">6</li>
+        <li class="t7">7</li>
+        <li class="t8">8</li>
+        <li class="t9">9</li>
+        <li class="t10">10</li>
+
+    </div>
+    <div class="xzpq">是</div>
+
+</body>
+</html>

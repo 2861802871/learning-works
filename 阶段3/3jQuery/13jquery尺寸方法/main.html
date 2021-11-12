@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        button{
+            position: fixed;
+            top: 30px;
+            left: 30px;
+        }
+        div{
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 200px;
+            height: 1200px;
+            border: 50px red solid;
+            padding: 100px;
+            margin: 100px;
+            background-color: rgb(78, 184, 152);
+        }
+    </style>
+</head>
+<body>
+    <button>返回</button>
+    <div></div>
+    <script>
+        $(function() {
+            // 宽度
+            console.log($("div").width());//200
+            console.log($("div").innerWidth());//400
+            console.log($("div").outerWidth());//500
+            console.log($("div").outerWidth(true));//700
+
+            // 位置
+            $("div").offset({//修改
+                top:200,
+                left:200
+            });
+            console.log($("div").offset());//获取
+       
+
+        //头部卷去
+        $("button").click(function() {
+            // $(document).scrollTop(0);
+            $("body,html").stop().animate({
+                scrollTop:0
+            });
+        });
+     });
+    </script>
+</body>
+</html>

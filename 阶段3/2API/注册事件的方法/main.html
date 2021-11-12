@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <button onclick="alert('hi~')">传统注册事件方法1</button>
+    <button>传统注册事件方法2</button>
+    <button>方法监听注册事件</button>
+
+    <script>
+        var btns = document.querySelectorAll('button');//传统注册方式
+        btns[1].onclick = function(){
+            alert('hellow~');
+        }
+        btns[2].addEventListener('click',function(){//可添加多个监听器，事件类型一定要加引号//方法监听注册
+            alert('hello hi~111');
+        });
+       
+        btns[2].addEventListener('click',function(){
+            alert('hello hi~222');
+        });
+        // btns[2].attachEvent('click',function(){//ie、、ie9之前独有其他浏览器不支持
+        //     alert('hello hi~333');
+        // });
+
+        //移除事件
+        btns[1].onclick = function(){
+            console.log('传统注册移除');
+            btns[1].onclick = null;//只能生效一次
+        }
+
+        btns[2].addEventListener('click',fn);
+        function fn() {
+            console.log('移除');
+            btns[2].removeEventListener('click',fn);//移除只能生效一次
+        }
+
+
+    </script>
+</body>
+</html>

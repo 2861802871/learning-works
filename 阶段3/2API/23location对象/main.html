@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="button0">前进</button>
+    <div></div>
+    <button class="button1">按钮</button>
+     <form action="index.html"><!--提交到index.html -->
+        用户名：<input type="text" name="uname">
+        <input type="submit" value="登录">
+    </form>
+    <script>
+        var btn0 = document.querySelector('.button0');
+        var btn = document.querySelector('.button1');
+        var div = document.querySelector('div');
+        var time = 3;
+        var timer0 = null;
+        btn.addEventListener('click',function() {
+            // console.log(location.href);
+            
+            timer0 = setInterval(function(){
+            div.innerHTML = '您将在'+time+'秒钟跳转到首页'
+            time--;
+            if(time == 0){
+                time=5;
+                // location.href = 'http://www.itcast.cn';//跳转可撤回
+                // location.assign('http://www.itcast.cn');//跳转可撤回
+                // location.replace('http://www.itcast.cn');//跳转不可撤回
+                location.reload();//重新刷新
+                location.reload(true);//强制刷新
+                clearInterval(timer0);
+            }
+        },1000);
+        })
+        console.log(navigator);
+        
+        btn0.addEventListener('click',function() {//历史前进和返回
+            // history.forward();
+            history.go(1);
+        });
+    </script>
+</body>
+</html>

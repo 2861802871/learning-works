@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 40%;
+            margin: 10% auto;
+
+        }
+        .day,.hour,.minute,.second{
+            width: 23%;
+            display: inline-block;
+            background-color: rgb(39, 39, 39);
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body><div class="box">
+        <div class="day"></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    <script>
+        var day = document.querySelector('.day');//获取主页class要加.
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        
+        var inputTime = +new Date('2021-8-9 9:9:0');//设置时间
+
+        function countDown(time){
+            var nowTime = +new Date;
+            var times = (inputTime-nowTime) / 1000;
+            var d = parseInt(times/60/60/24);
+            var h = parseInt(times/60/60%24);
+            var m = parseInt(times/60%60);
+            var s = parseInt(times%60);
+            d = d<9?'0'+d:d;
+            h = h<9?'0'+h:h;
+            m = m<9?'0'+m:m;
+            s = s<9?'0'+s:s;
+            
+            day.innerHTML = d+'天';//赋值
+            hour.innerHTML = h+'时';
+            minute.innerHTML = m+'分';
+            second.innerHTML = s+'秒';
+            console.log(d+'天 '+h+':'+m+':'+s);
+        }
+        countDown();
+        var timer0 = setInterval(countDown,1000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.FormData上传文件</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<!-- !important -->
+
+<body>
+    <input type="file" id="filel" />
+    <button id="button">提交</button>
+    <br />
+    <!-- 进度条 -->
+    <div class="progress" id="progrss" style="width:500px;height: 15px; margin:20px;display: none;">
+        <div class="progress-bar progress-bar-striped active" id="percent" style="display:none;width: 0%">
+            0%
+        </div>
+    </div>
+    <img src="" alt="" id="img" width="800" style="margin: top 20px;">
+    <script>
+        // FormData对象用法
+        var btn = document.querySelector('#button')
+        btn.addEventListener('click', function (e) {
+            // 阻止默认提交行为
+            // e.preventDefault()
+            var files = document.querySelector('#filel').files
+            if (files.length <= 0) {
+                return alert('没有选择任何文件！')
+            }
+            // 追加文件
+            var fd = new FormData()
+            fd.append('avatar', files[0])
+            console.log('添加完成 准备提交');
+
+            var xhr = new XMLHttpRequest()
+            // 上传进度查询
+            xhr.upload.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    var percentComplete = Math.ceil((e.loaded / e.total) * 100)
+                    console.log(percentComplete + '%');
+
+                    // 原生js完成元素内容替换和属性值更改
+                    // 显示进度条
+                    var progrss = document.querySelector('#progrss')
+                    progrss.setAttribute('style', 'width:500px;height: 15px; margin:20px;display:block;')
+                    var percent = document.querySelector('#percent')
+                    percent.innerText = percentComplete + '%'
+                    percent.setAttribute('style', 'width:' + percentComplete + '%')
+                    // 加载完成隐藏进度条
+                    if (percentComplete >= 100) {
+                        progrss.setAttribute('style', 'width:500px;height: 15px; margin:20px;display:none;')
+
+                    }
+
+
+                    // jQuery完成元素内容替换和属性值更改
+                    // 显示进度条
+                    // $('#percent').show()
+                    // $('#percent').innerHtml(percentComplete + '%')
+                    // $('#percent').attr('style', 'display:block;width:' + percentComplete + '%')
+
+                }
+
+            }
+            // 上传完成时间监听
+            xhr.upload.onload = function () {
+                console.log('上传完成！');
+            }
+
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar')
+            xhr.send(fd)
+            // 监听上传文件
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    if (xhr.status == 200) {
+                        var data = JSON.parse(xhr.responseText)
+                        console.log(data);
+                        var img = document.querySelector('#img')
+                        img.src = 'http://www.liulongbin.top:3006' + data.url
+                    } else {
+                        console.log('提交失败！');
+                    }
+                }
+            }
+            // 监听上传文件进度
+        })
+
+
+    </script>
+</body>
+
+</html>

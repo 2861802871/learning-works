@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板引擎</title>
+    <script src="./lib/template-web.js"></script>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="mbody">
+    </div>
+    <script type="text/html" id="content">
+      <h3 id="title">{{title}}</h3>
+      <div id="uname">姓名：{{uname}}</div>
+      <div id="age">年龄：{{age}}</div>
+      <div id="regTime">注册时间：{{regTime}}</div>
+      <div>爱好：
+        <ol type="1" id="hobby">
+            <!-- <li></li>
+            <li></li> -->
+
+        </ol>
+      </div>
+    </script>
+    <script>
+        var data = {
+            title: '注册信息表',
+            uname: '张三',
+            age: '20',
+            regTime: new Date(),
+            hobby: ['干饭', '睡觉', '干饭', '睡觉']
+        }
+        var dataContent = template('content', data)
+        // $('#mbody').append(dataContent.join(''))
+        var rows = []
+        $.each(data.hobby, function (i, item) {
+            rows.push('<li>' + item + '</li>')
+        })
+        $('#mbody').empty().append(dataContent + rows.join(''))
+        // $('#mbody').html(dataContent + rows.join(''))
+
+    </script>
+</body>
+
+</html>

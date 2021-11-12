@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* html{
+            font-size: ;
+        } */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box0{/*登录提示按钮*/
+            cursor: pointer;
+            width: 20%;
+            margin: 3% auto 0;
+            text-align: center;
+            box-shadow: 0 1px 1px rgba(170, 169, 169, 0.5);
+        }
+        .boxpro{
+            
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,0%);
+            position: relative;
+            width: 25%;
+            margin: 50px 0;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 1px 2px rgba(78, 78, 78,0.5);
+            border: 1px solid rgb(180, 179, 179);
+            border-radius: 2%;
+        }
+        
+        .box2{/*box2相对定位*/
+            margin: 0 2% 2% 2%;
+            position: relative;
+
+            
+        }
+        .closure{/*关闭按钮*/
+            cursor: pointer;
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 0.2em;
+            line-height: 25px;
+            background-color: #fff;
+            border: 1px rgb(233, 233, 233) solid;
+            box-shadow: 0 1px 1px rgba(78, 78, 78,0.5);
+            color: rgb(110, 110, 110);
+            position: absolute;
+            right: -15px;
+            top: -15px;
+        }
+        .user input{
+            width: 55%;
+        }
+        .password input{
+            width: 50%;
+        }
+
+        .user,.passWord,.logIn{/*内容居中显示*/
+            text-align: center;/* .boxpro已写此处可省 */
+            margin: 5%;
+        }
+        /* .member */
+        .logIn{width:30%;/*登录按钮*/
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 1px 1px rgba(153, 151, 151, 0.5);
+            border: 1px solid rgb(180, 179, 179);
+            border-radius: 3%;
+            /* position: absolute;
+            left: 50%; */
+            /* transform: translate(25%,0%); */
+        }
+    </style>
+</head>
+<body>
+    <div class="box0" >点击,弹出登录框</div>
+    <div class="boxpro">
+        <div class="box2">
+            <button class="closure">关闭</button>
+            <!-- <div class="closure">关闭 -->
+            </div>
+            <div class="member" style="cursor:crosshair">登录会员</div>
+            <div class="user"> 用  户  名 ：
+                <input type="text">
+            </div>
+            <div class="password">登录密码：
+                <input type="passWord">
+            </div>
+            <button class="logIn">登录会员</button>
+        </div>
+    </div>
+    <script>
+        var box0 = document.querySelector('.box0');
+        var closure = document.querySelector('.closure');
+        var boxpro = document.querySelector('.boxpro');
+        var member = document.querySelector('.member');
+
+        box0.addEventListener('click',function() {
+            boxpro.style.display = 'block';
+        })
+        closure.addEventListener('click',function() {
+            boxpro.style.display = 'none';
+        })
+        member.addEventListener('mousedown',function(e) {//鼠标按下
+            var x = e.pageX - boxpro.offsetLeft;
+            var y = e.pageY - boxpro.offsetTop;
+            // member.innerHTML = x + ' ' + y;
+            document.addEventListener('mousemove',move);//鼠标移动
+            function move(e) {
+                boxpro.style.left = e.pageX - x + 'px';
+                boxpro.style.top = e.pageY - y - 105  + 'px';
+            }
+            document.addEventListener('mouseup',function(e) {//弹起移除按下事件
+                document.removeEventListener('mousemove',move)
+            });
+        });
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    color: rgb(248, 248, 248);
+}
+
+.box{
+    float: left;
+    width: 40%;
+    height: 50%;
+    margin-top: 20%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(150, 150, 150, 1);
+}
+
+textarea{
+    font-size: 16px;
+    border: 1px solid rgb(139, 133, 104);
+    outline: none;
+    resize: none;
+    width: 89%;
+    height: 30%;
+    background-color: rgba(124, 124, 124, 1);
+}
+button{
+    height: 30%;
+    width: 10%;
+    float: right;
+    display: block;
+    background-color: rgba(124, 124, 124, 1);
+    border: 1px solid rgb(156, 149, 117);
+}
+ul{
+    height:65%; 
+    margin-top:5%;
+    border: 1px solid rgb(156, 149, 117);
+    background-color: rgba(124, 124, 124, 1);
+}
+li{
+    margin-top: 1%;
+    list-style-type: none;
+    /* border-bottom: 1px solid rgb(231, 225, 199); */
+}
+li a{
+    float: right;
+    margin-right:1%;
+}
+</style>
+<body>
+    <div class="box">
+        <textarea ></textarea>
+        <button>发布</button>
+        <ul>
+            <li>留言：</li>
+
+        </ul>
+    </div> 
+
+    <script>
+        var box = document.querySelector('.box');
+        var textarea = box.children[0];
+        var btn = box.children[1];
+        var ul = box.children[2];
+        btn.onclick = function(){
+            if(textarea.value==''){
+                alert('先输入留言！！！');
+            }else{
+                var li = document.createElement('li');
+                li.innerHTML = textarea.value+"<a href='javascript:;'>删除</a>";
+                ul.insertBefore(li,ul.children[1]);
+                textarea.value = ''; 
+                var as = document.querySelectorAll('a');
+                for(var i = 0;i < as.length;i++)
+                {
+                    as[i].onclick = function() {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+       } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+.mainCont .slider img{
+    width: 100%;
+}
+.brand{
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+.brand div{
+    float: left;
+    width: 33.33%;
+}
+.mainCont .brand img{
+    width: 100%;
+}
+img{/*去除图片默认空白空隙*/
+    vertical-align: top;
+}
+nav{margin-top:5px;}
+nav a{
+    display: block;
+    float: left;
+    width: 20%;
+    text-align: center;
+    
+}
+a{
+    text-decoration: none;
+    color: rgb(24, 24, 24);
+}
+nav img{
+    width: 40px;
+    margin: 10px 0;
+}
+span{
+    display: block;
+}
+/*新闻模块*/
+.news img{
+    width: 100%;
+}
+.news a{
+    float: left;
+}
+.news a:nth-child(1){
+    width:50%;
+}
+.news a:nth-child(n+2){
+    width:25%;
+}
+/* 商品展示 */
+.commodity{
+    width: 100%;
+    margin: 0 auto;
+}
+.commodity a img{
+    width: 100%;
+}
+.commodity div a{
+    width: 48%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    position: relative;
+    margin-top:2%;
+}
+.commodity div a:nth-child(1){
+    margin-left:1%;
+    position: relative;
+    overflow: hidden;
+}
+.commodity div a:nth-child(1) p:nth-child(2){
+    width: 40%;
+    white-space:nowrap;
+    background-color: rgb(255, 96, 96);
+    color: white;
+    border-radius:20%;
+}
+.commodity div a:nth-child(2) p:nth-child(2){
+    width: 20%;
+    white-space:nowrap;
+    background-color: rgb(255, 96, 96);
+    color: white;
+    border-radius:20%;
+}
+.commodity div a:nth-child(1) p:nth-child(3){
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    text-indent:6em;
+}
+.commodity div a:nth-child(2) p:nth-child(3){
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    text-indent:4em;
+}
+.commodity div a p:nth-child(n+2){
+    margin-top:3%;
+}
+.commodity div a:nth-child(2){
+    margin-left:2%;
+}
+.commodity div a img{
+    width: 100%;
+    border-radius:2%;
+}

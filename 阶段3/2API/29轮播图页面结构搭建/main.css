@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+body{
+    position: relative;
+}
+.box{
+    position: relative;
+    overflow: hidden;
+    zoom:1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    /* width: 50%; */
+    width: 721px;
+    height: 445px;
+    margin: 5% auto;
+    /* border: 1px solid #ccc; */
+
+}
+.box::after{
+    content:'';
+    display:block;
+    clear:both;
+    }
+
+.box ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* margin: 0 auto; */
+    width: 600%;
+    list-style-type: none;
+    text-align: center;
+}
+.box ul li{
+    /* width:25%; */
+    float: left;
+    margin-top: 0;
+
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+}
+.box ul li img{
+    width: 100%;
+}
+.arrow-l,.arrow-r{
+    display: block;
+    display: none;
+    width: 30px;
+    height: 30px;
+    border-top: 4px solid #ccc;
+    border-right: 4px solid #ccc;
+}
+.arrow-l{
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: rotate(-135deg);
+}
+.arrow-r{
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    transform: rotate(45deg);
+}
+
+.box .circle li{
+    display: inlisne-block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 0 1%;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+
+}
+.box ol{ 
+    /* position: relative; */
+    width: 100%;
+    list-style-type: none;
+    position: absolute;
+    top: 90%;
+    left: 50%; 
+    /* transform: translate(-0%,-50%); */
+    text-align: center; 
+    vertical-align: middle;
+}
+
+/* 小圆点选中样式 */
+.current{
+    background-color: rgb(252, 71, 0);
+}
